@@ -33,7 +33,6 @@ void deleteClassPointerArray(Item ** a_arrayptr){
         deleteClassArray(a_arrayptr[i]);  //<-------------------
     }
         delete [] a_arrayptr;             //<--------------------
-    
     //delete a_arrayptr;
 }
 int main(int argc, const char * argv[]) {
@@ -46,7 +45,6 @@ int main(int argc, const char * argv[]) {
     
     Item ** container;
     container = MakeClassPointerArray(10);
-    
     deleteClassPointerArray(container);
     
     return 0;

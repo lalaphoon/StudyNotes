@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by Mengyi LUO on 2016-07-15.
-//  Copyright © 2016 WTC Tax. All rights reserved.
+//  Copyright © 2016 lalaphoon. All rights reserved.
 //
 
 #include <iostream>

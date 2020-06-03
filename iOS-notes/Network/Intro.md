@@ -85,7 +85,7 @@ GET, POST, HEAD, PUT, DELETE, OPTIONS
 
 ### Make a connection
 
-![Screen Shot 2020-05-23 at 7.34.41 PM](res/Screen Shot 2020-05-23 at 7.34.41 PM.png)
+![Screen Shot 2020-05-23 at 7.34.41 PM](./res/Screen Shot 2020-05-23 at 7.34.41 PM.png)
 
 * Client and server's three times connection
 
@@ -118,7 +118,7 @@ GET, POST, HEAD, PUT, DELETE, OPTIONS
 * connectionless
   * **HTTP is connectionless:** It is a connectionless approach in which HTTP client i.e., a browser initiates the HTTP request；  <u>After the request is sent， the client disconnects from server and waits for the response</u>.
   * Sol: http persistent connection -  to increase the effective of working.
-  * ![Screen Shot 2020-05-23 at 11.30.04 PM](res/Screen Shot 2020-05-23 at 11.30.04 PM.png)
+  * ![Screen Shot 2020-05-23 at 11.30.04 PM](./res/Screen Shot 2020-05-23 at 11.30.04 PM.png)
   * ==How to determine a reques has been finished?== 
     * Content-lenth: 1024
     * Chunked: 最后一个是空的chunked
@@ -127,7 +127,7 @@ GET, POST, HEAD, PUT, DELETE, OPTIONS
       * 一般是直连client 和server
       * 而中间人就是把中间人当成代理， client 与 server之间的交互都是通过中间人
       * [REF](https://www.jianshu.com/p/870451cb4eb0)
-      * ![Screen Shot 2020-05-23 at 11.52.24 PM](/Users/mengyiluo/Developer/iOS/iOS-notes/Network/res/Screen Shot 2020-05-23 at 11.52.24 PM.png)
+      * ![Screen Shot 2020-05-23 at 11.52.24 PM](./res/Screen Shot 2020-05-23 at 11.52.24 PM.png)
       * [Postman](https://blog.postman.com/client-proxy-settings-in-postman/)
       * *Because Google Analytics uses a secure connection by default, Charles must be instructed to intercept Google Analytics traffic.* [reference](https://www.bounteous.com/insights/2016/11/17/using-charles-proxy-inspect-and-debug-google-analytics/?lang=en-ca) 
       * sol: *Installing the Charles Certificate: To read secure traffic in both directions, Charles needs to un-encrypt secure traffic from the server, and replace the server’s encryption with its own. For this to work, we need to install a certificate that tells your browser to trust Charles. Charles can provide such a certificate, but it takes a lot of clicking to make it work.*
@@ -142,7 +142,7 @@ GET, POST, HEAD, PUT, DELETE, OPTIONS
 
 HTTPS = HTTP + SSL/TLS
 
-![Screen Shot 2020-05-24 at 12.25.17 AM](res/Screen Shot 2020-05-24 at 12.25.17 AM.png)
+![Screen Shot 2020-05-24 at 12.25.17 AM](./res/Screen Shot 2020-05-24 at 12.25.17 AM.png)
 
 * IP: 网络层
 * TCP：传输层
@@ -152,7 +152,7 @@ HTTPS = HTTP + SSL/TLS
 
 ==What is the connection process for https?==
 
-![Screen Shot 2020-05-24 at 12.31.30 AM](res/Screen Shot 2020-05-24 at 12.31.30 AM.png)
+![Screen Shot 2020-05-24 at 12.31.30 AM](./res/Screen Shot 2020-05-24 at 12.31.30 AM.png)
 
 * 3. 验证 server public key - check if it's legal
   4. make a <code>meeting private key</code>
@@ -166,11 +166,11 @@ HTTPS = HTTP + SSL/TLS
 
 ==What is 非对称加密？== 加密与解密所使用的钥匙是不一样的 - **公钥 vs 私钥**
 
-![Screen Shot 2020-05-24 at 12.44.11 AM](res/Screen Shot 2020-05-24 at 12.44.11 AM.png)
+![Screen Shot 2020-05-24 at 12.44.11 AM](./res/Screen Shot 2020-05-24 at 12.44.11 AM.png)
 
 ==What is 对称加密？== 加密与解密都用同一个钥匙
 
-![Screen Shot 2020-05-24 at 12.45.45 AM](res/Screen Shot 2020-05-24 at 12.45.45 AM.png)
+![Screen Shot 2020-05-24 at 12.45.45 AM](./res/Screen Shot 2020-05-24 at 12.45.45 AM.png)
 
 * 缺点：密钥可能需要传输传递，但是传递过程会容易发生中间人攻击。因此会容易被破译。
 
@@ -188,17 +188,17 @@ HTTPS = HTTP + SSL/TLS
 * connectionless： no need to construc/release process
 * 尽最大努力传输： 不保证可靠传输
 * 面向报文 - 完整传输
-  * ![](res/Screen Shot 2020-05-24 at 12.53.58 AM.png)
+  * ![](./res/Screen Shot 2020-05-24 at 12.53.58 AM.png)
 
 #### 功能
 
 #### 复用，分用
 
-![Screen Shot 2020-05-24 at 12.57.44 AM](res/Screen Shot 2020-05-24 at 12.57.44 AM.png)
+![Screen Shot 2020-05-24 at 12.57.44 AM](./res/Screen Shot 2020-05-24 at 12.57.44 AM.png)
 
 #### 差错检测
 
-![Screen Shot 2020-05-24 at 12.59.56 AM](res/Screen Shot 2020-05-24 at 12.59.56 AM.png)
+![Screen Shot 2020-05-24 at 12.59.56 AM](./res/Screen Shot 2020-05-24 at 12.59.56 AM.png)
 
 ### TCP
 
@@ -220,7 +220,7 @@ HTTPS = HTTP + SSL/TLS
 
   #### ==why 3？==
 
-  * ![Screen Shot 2020-05-24 at 3.11.17 PM](res/Screen Shot 2020-05-24 at 3.11.17 PM.png)
+  * ![Screen Shot 2020-05-24 at 3.11.17 PM](./res/Screen Shot 2020-05-24 at 3.11.17 PM.png)
   * 如果只有两次的话： 假设第一次client的syn发生了超时，client会启动从新传送策略。所以在server发送2.syn **Syncheonize sequence number**,ack **Acknowlegement**（表示连接已经建立完毕）以后有可能再收到一个client发送的1.syn，于是再发送了一个2.syn，ack。而client只想建立一个http连接。
   * 三次的话，client就会针对某一个syn，ack发送ack确认。另外一个超时的，client就不会再发送ack表示它没有想真正建立这个连接。
   * 总结：可以规避连接之间发生的异常。
@@ -229,7 +229,7 @@ HTTPS = HTTP + SSL/TLS
 
   #### ==why 2 times?==
 
-  ![Screen Shot 2020-05-24 at 3.13.37 PM](res/Screen Shot 2020-05-24 at 3.13.37 PM.png)
+  ![Screen Shot 2020-05-24 at 3.13.37 PM](./res/Screen Shot 2020-05-24 at 3.13.37 PM.png)
 
   半关闭状态以后client不可以再给server发送东西。而server可以，server需要继续玩成它的内容
 
@@ -251,13 +251,13 @@ HTTPS = HTTP + SSL/TLS
 		* 无差错： 有一对一的回复
 		* 超时重传： 超过一定时间没有回复，再传输一次
   * 确认丢失：指在server回复client的信息被中断，client再超时重传的时候，server可以选择放弃之前的，确认重传的。
-    		* ![Screen Shot 2020-05-24 at 7.37.26 PM](res/Screen Shot 2020-05-24 at 7.37.26 PM.png)
+    		* ![Screen Shot 2020-05-24 at 7.37.26 PM](./res/Screen Shot 2020-05-24 at 7.37.26 PM.png)
 * 确认迟到
-  * ![Screen Shot 2020-05-24 at 7.38.56 PM](res/Screen Shot 2020-05-24 at 7.38.56 PM.png)
+  * ![Screen Shot 2020-05-24 at 7.38.56 PM](./res/Screen Shot 2020-05-24 at 7.38.56 PM.png)
 
 #### 面向字流节
 
-* ![Screen Shot 2020-05-24 at 7.41.09 PM](res/Screen Shot 2020-05-24 at 7.41.09 PM.png)
+* ![Screen Shot 2020-05-24 at 7.41.09 PM](./res/Screen Shot 2020-05-24 at 7.41.09 PM.png)
 * 发送方和接收方都有tcp的缓冲
 * 每次发送多少字节，由tcp连接控制
 * 不管发送方法多少给tcp，tcp本身都可以根据实际情况来划分我每次发送给接收方有多少字节。
@@ -265,7 +265,7 @@ HTTPS = HTTP + SSL/TLS
 #### 流量控制
 
 * ==什么是滑动窗口协议以及你怎么理解？== - 按序到达也是滑动窗口的体现
-  * ![Screen Shot 2020-05-24 at 8.22.50 PM](res/Screen Shot 2020-05-24 at 8.22.50 PM.png)
+  * ![Screen Shot 2020-05-24 at 8.22.50 PM](./res/Screen Shot 2020-05-24 at 8.22.50 PM.png)
 
 #### 堵塞控制
 
@@ -285,20 +285,20 @@ client first find the ip of url on DNS server, then DNS server will return IP to
 * recursively
 
   * "Let me ask for you"
-    * ![Screen Shot 2020-05-24 at 8.34.32 PM](res/Screen Shot 2020-05-24 at 8.34.32 PM.png)
+    * ![Screen Shot 2020-05-24 at 8.34.32 PM](./res/Screen Shot 2020-05-24 at 8.34.32 PM.png)
 
 * Iteratively
 
   * "let me give you a list of possible reference for you"
 
-    * ![Screen Shot 2020-05-24 at 8.36.20 PM](res/Screen Shot 2020-05-24 at 8.36.20 PM.png)
+    * ![Screen Shot 2020-05-24 at 8.36.20 PM](./res/Screen Shot 2020-05-24 at 8.36.20 PM.png)
 
     根->顶级->权限
 
 DNS问题
 
 * DNS劫持
-  * ![Screen Shot 2020-05-24 at 10.59.32 PM](res/Screen Shot 2020-05-24 at 10.59.32 PM.png)
+  * ![Screen Shot 2020-05-24 at 10.59.32 PM](./res/Screen Shot 2020-05-24 at 10.59.32 PM.png)
   * ==dns劫持与http的关系是怎样的？==
     * 没有关系
     * dns解析发生在http建立连接之前
@@ -309,7 +309,7 @@ DNS问题
       * 使用http协议向dns服务器的80端口进行请求
     * 长连接
 * dns解析转发
-  * ![Screen Shot 2020-05-24 at 11.03.40 PM](res/Screen Shot 2020-05-24 at 11.03.40 PM.png)
+  * ![Screen Shot 2020-05-24 at 11.03.40 PM](./res/Screen Shot 2020-05-24 at 11.03.40 PM.png)
 
 ## Session Cookie
 
@@ -336,7 +336,7 @@ Cookie会根据响应报文里的一个叫做Set-Cookie的首部字段信息，�
 * 只在https上携带cookie
 * 设置cookie为httponly，防止跨站脚本攻击
 
-![Screen Shot 2020-05-24 at 11.21.31 PM](res/Screen Shot 2020-05-24 at 11.21.31 PM.png)
+![Screen Shot 2020-05-24 at 11.21.31 PM](./res/Screen Shot 2020-05-24 at 11.21.31 PM.png)
 
 1. http request
 2. generate cookie
@@ -355,7 +355,7 @@ Cookie会根据响应报文里的一个叫做Set-Cookie的首部字段信息，�
 
 session需要cookie的机制
 
-![Screen Shot 2020-05-24 at 11.20.15 PM](res/Screen Shot 2020-05-24 at 11.20.15 PM.png)
+![Screen Shot 2020-05-24 at 11.20.15 PM](./res/Screen Shot 2020-05-24 at 11.20.15 PM.png)
 
 ### set-Cookie的字段的属性
 
@@ -405,7 +405,7 @@ Set-Cookie: logcookie=3qjj; expires=Wed, 13-Mar-2019 12:08:53 GMT; Max-Age=31536
 
 [reference](https://medium.com/better-programming/json-web-tokens-vs-session-cookies-for-authentication-55a5ddafb435)
 
-In a token-based application, the server creates a signed token and sends the token back to the client. The JWT is stored **on the client’s side** (usually in local storage) and sent as a header for every subsequent request.![Screen Shot 2020-05-25 at 11.00.00 AM](res/Screen Shot 2020-05-25 at 11.00.00 AM.png)
+In a token-based application, the server creates a signed token and sends the token back to the client. The JWT is stored **on the client’s side** (usually in local storage) and sent as a header for every subsequent request.![Screen Shot 2020-05-25 at 11.00.00 AM](./res/Screen Shot 2020-05-25 at 11.00.00 AM.png)
 
 #### JWT
 
@@ -477,7 +477,7 @@ The signature is not publicly readable because it is encrypted with a secret key
 
 ## Token vs Session
 
-![Screen Shot 2020-05-28 at 9.46.11 PM](res/Screen Shot 2020-05-28 at 9.46.11 PM.png)
+![Screen Shot 2020-05-28 at 9.46.11 PM](./res/Screen Shot 2020-05-28 at 9.46.11 PM.png)
 
 * Token stores in client side while session use server memory
 * Token JWT is much bier than session ID stored in Cookie and contains more user information.

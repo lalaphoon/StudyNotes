@@ -26,7 +26,7 @@
 
 ## Intro
 
-This project's mission is to help people deliver their objects as fast as possible by auto allocate android or drone delivery within San Francisco (884,363 ppl). The entire process is a door-to-door service that is all managed by autonomous driving drones and/or robots. The drone or robot will get to your place, collect your items and talk it to your destination. We believe that through our project, we can significantly reduce the time of entire process and costs from human source on delivering within a city every day
+This project's mission is to help people deliver their objects as fast as possible by auto allocate android or drone delivery within San Francisco (884,363 ppl). The entire process is a door-to-door service that is all managed by autonomous driving drones and/or robots. The drone or robot will get to your place, collect your items and take it to your destination. We believe that through our project, we can significantly reduce the time of entire process and costs from human source on delivering within a city every day
 
 #### Requirements
 

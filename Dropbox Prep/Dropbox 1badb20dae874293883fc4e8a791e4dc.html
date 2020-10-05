@@ -1,0 +1,642 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Dropbox</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1badb20d-ae87-4293-883f-c4e8a791e4dc" class="page sans"><header><img class="page-cover-image" src="https://robotmafia.com/wp-content/uploads/2019/05/motocross_saito_2.gif" style="object-position:center 57.87%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🕳️</span></div><h1 class="page-title">Dropbox</h1></header><div class="page-body"><nav id="183a8528-9d8a-422c-902a-6ee80255d223" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8b711e98-f8b2-4456-87df-94bc7705adf5">References</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#db2047a7-1595-4fab-8f71-18e1dfa14d7b">Job Position</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f0cec90d-82e8-4063-90db-3dd58c937901">General Background of Dropbox</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fe209143-64a2-4bfb-aec8-7fe237feb19f">Possible BQ</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25685091-7cf6-4fd0-bb28-31a121b238a0">What to prepare next?</a></div></nav><p id="66134c9f-4913-4e40-a858-5582e46d3bff" class="">
+</p><h2 id="8b711e98-f8b2-4456-87df-94bc7705adf5" class="">References</h2><ul id="714be705-b1fa-415c-9c46-25580acf6686" class="toggle"><li><details open=""><summary>How Should I prepare for a Dropbox Interview?</summary><p id="bc90b2e8-9b79-4338-8b69-c273e2168af1" class=""><a href="https://www.quora.com/How-should-I-prepare-for-a-Dropbox-interview">https://www.quora.com/How-should-I-prepare-for-a-Dropbox-interview</a></p></details></li></ul><ul id="8cb78438-5881-4f90-85f0-66a9f3e09dd3" class="toggle"><li><details open=""><summary>Google Drive vs Dropbox</summary><ul id="74f492b1-bf75-4214-86c8-53aaa387dce7" class="bulleted-list"><li><a href="https://www.jotform.com/blog/dropbox-vs-google-drive/#:~:text=Syncing%20winner%3A%20Dropbox-,Winner,on%20a%20lot%20of%20documents">https://www.jotform.com/blog/dropbox-vs-google-drive/#:~:text=Syncing winner%3A Dropbox-,Winner,on a lot of documents</a>.</li></ul><div id="7f0031a2-bb85-4ea2-82b9-3b6026c6c4e2" class="collection-content"><h4 class="collection-title">Google Drive vs Dropbox</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Dropbox</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Google Drive</th></tr></thead><tbody><tr id="179d86b5-baa6-45c4-951e-0c19f1373c17"><td class="cell-title"><a href="Dropbox%201badb20dae874293883fc4e8a791e4dc/Google%20Drive%20vs%20Dropbox%207f0031a2bb854ea282b93b6026c6c4e2/Security%20179d86b5baa645c4951e0c19f1373c17.html">Security</a></td><td class="cell-|{&gt;/"><mark class="highlight-teal">* two-factor authentication
+* stronger version of encryption - AES 256-bit encryption - Top Secret</mark></td><td class="cell-QD@1">*  two factor
+* 128-bit encryption</td></tr><tr id="34e7f113-db55-4667-a40e-a0df3a6e32b3"><td class="cell-title"><a href="Dropbox%201badb20dae874293883fc4e8a791e4dc/Google%20Drive%20vs%20Dropbox%207f0031a2bb854ea282b93b6026c6c4e2/Free%20Storage%2034e7f113db554667a40ea0df3a6e32b3.html">Free Storage</a></td><td class="cell-|{&gt;/">* 2 GB
+* extra 500 MB for a friend refer → 19GB</td><td class="cell-QD@1"><mark class="highlight-teal">* 15 GB
+* easy to be burned  - Gmail, Google Photos, Google products</mark></td></tr><tr id="de6baa8b-39df-4f65-8320-5f0871ed9aff"><td class="cell-title"><a href="Dropbox%201badb20dae874293883fc4e8a791e4dc/Google%20Drive%20vs%20Dropbox%207f0031a2bb854ea282b93b6026c6c4e2/Paid%20Storage%20de6baa8b39df4f6583205f0871ed9aff.html">Paid Storage</a></td><td class="cell-|{&gt;/">* Dropbox’s plans start at $11.99 per month for up to 2 TB of storage
+* $9.99 per month if you pay annually.
+* $119.88 per year 
+* <strong>Smart Sync</strong></td><td class="cell-QD@1">*<mark class="highlight-teal"> Google Drive - $99.99 - 2 TB</mark></td></tr><tr id="045d4b31-a57d-4fae-8671-c2ec1e460794"><td class="cell-title"><a href="Dropbox%201badb20dae874293883fc4e8a791e4dc/Google%20Drive%20vs%20Dropbox%207f0031a2bb854ea282b93b6026c6c4e2/File%20Sharing%20features%20045d4b31a57d4fae8671c2ec1e460794.html">File Sharing features</a></td><td class="cell-|{&gt;/"><mark class="highlight-teal">* password
+* set expiration date</mark>
+* windows and Mac OS
+* &quot;Copy Dropbox link&quot;</td><td class="cell-QD@1"></td></tr><tr id="78e1caad-2e2f-44a2-b3ba-a7f16becca12"><td class="cell-title"><a href="Dropbox%201badb20dae874293883fc4e8a791e4dc/Google%20Drive%20vs%20Dropbox%207f0031a2bb854ea282b93b6026c6c4e2/Syncing%2078e1caad2e2f44a2b3baa7f16becca12.html">Syncing</a></td><td class="cell-|{&gt;/"><mark class="highlight-teal">* Changes to a file in blocks. It’s much faster
+*  Good for collaboration features</mark></td><td class="cell-QD@1">* Google downloads and uploads the entire document to sync it. This can <mark class="highlight-red">result in delays</mark> if you’re trying to access the latest version of the document from another device. 
+* Additionally, if you lose your internet connection while Google is syncing your files, <mark class="highlight-red">you could lose the work you’ve done.</mark></td></tr><tr id="1bec153b-e631-416e-8175-a91b8de7aac2"><td class="cell-title"><a href="Dropbox%201badb20dae874293883fc4e8a791e4dc/Google%20Drive%20vs%20Dropbox%207f0031a2bb854ea282b93b6026c6c4e2/Winner%201bec153be631416e8175a91b8de7aac2.html">Winner</a></td><td class="cell-|{&gt;/">This one</td><td class="cell-QD@1"></td></tr></tbody></table></div><ul id="76894a9c-4432-4e7f-9812-3febcd3c2380" class="bulleted-list"><li><a href="https://zapier.com/blog/dropbox-vs-google-drive/">https://zapier.com/blog/dropbox-vs-google-drive/</a></li></ul></details></li></ul><ul id="b9874c3b-0020-45e6-b480-106fbe71e93c" class="toggle"><li><details open=""><summary><mark class="highlight-red_background">Google Doc vs Dropbox Paper</mark></summary><p id="ed3f5b1f-9481-4611-a5a4-31556021c656" class=""><a href="https://www.cloudwards.net/dropbox-paper-vs-google-docs/">https://www.cloudwards.net/dropbox-paper-vs-google-docs/</a></p></details></li></ul><ul id="4e6a89df-d053-43ed-bb29-648f0870e449" class="toggle"><li><details open=""><summary>Blog</summary><p id="86204748-7a0a-49d1-a113-d472c1aa4e32" class=""><a href="https://blog.dropbox.com/topics/product-tips/dropbox-for-distributed-work">https://blog.dropbox.com/topics/product-tips/dropbox-for-distributed-work</a></p><p id="8f82aea4-f556-412d-8af9-fbcc36e98867" class="">Dropbox Spaces: <a href="https://blog.dropbox.com/topics/product/introducing-dropbox-spaces">https://blog.dropbox.com/topics/product/introducing-dropbox-spaces</a></p></details></li></ul><ul id="f8dd0ed5-bd10-4702-82b0-72439567ac79" class="toggle"><li><details open=""><summary>面经</summary><ul id="1e2fbf73-cece-4bf7-8ffe-535abd3fe9a7" class="bulleted-list"><li><a href="https://www.1point3acres.com/bbs/interview/dropbox-software-engineer-307607.html">https://www.1point3acres.com/bbs/interview/dropbox-software-engineer-307607.html</a></li></ul></details></li></ul><ul id="641d53a9-18aa-4c5a-91bf-9b08fa61e74c" class="toggle"><li><details open=""><summary>leetcode</summary><ul id="2f09930b-4ab6-463b-ae51-4a5350cc5aaf" class="bulleted-list"><li><a href="https://leetcode.com/company/dropbox/">https://leetcode.com/company/dropbox/</a></li></ul><ul id="88ec20c2-9cee-4399-ba9e-8a01d53c858c" class="bulleted-list"><li>multi-threading</li></ul></details></li></ul><p id="5809358a-7a1f-405c-a3dd-55739e5bc1af" class="">
+</p><h2 id="db2047a7-1595-4fab-8f71-18e1dfa14d7b" class="">Job Position</h2><ul id="ac64c35f-f4c6-41f6-9315-78137b4d0856" class="bulleted-list"><li>Backend web developer -Toronto<ul id="6a693e5f-b5ea-4841-87d4-5f3a4d146872" class="bulleted-list"><li><mark class="highlight-yellow_background">Web Developer</mark> with experience working on portal and other marketing technology implementations</li></ul><ul id="fd00bd82-b0d6-4545-b286-2dc619d2729c" class="bulleted-list"><li>Functional : will include working with <mark class="highlight-yellow_background">stakeholders, gathering requirements and understanding the requirements</mark> from a functional perspective.</li></ul><ul id="44a7b263-cee8-47cb-b5d3-29c27a8c14e6" class="bulleted-list"><li>Technical: will include understanding <mark class="highlight-yellow_background">configurations, working on project delivery, developing enhancements and supporting the system</mark> from a technical perspective.</li></ul><ul id="5ef90274-df5f-4bf9-8d01-c85f91f56557" class="toggle"><li><details open=""><summary>Responsibilities</summary><ul id="72743126-796b-480d-9708-5121a5d4ea7e" class="bulleted-list"><li>Build easy-to-use, <mark class="highlight-yellow_background"><strong>high-performance websites</strong></mark> </li></ul><ul id="5106617a-b5db-4509-b476-687a3d460ad5" class="bulleted-list"><li>Colleages &amp; Clients: <mark class="highlight-yellow_background">website marketers and other groups</mark></li></ul><ul id="5b415f37-fcde-47d2-93c8-a10ce04cde23" class="bulleted-list"><li>Participate in the <mark class="highlight-yellow_background"><strong>full development lifecycle</strong></mark><mark class="highlight-yellow_background">,</mark> including <strong>estimation, design, development, testing, and deployment</strong></li></ul><ul id="645b8443-d574-4581-b88e-bf6e6762c9bc" class="bulleted-list"><li>Review and respond to <mark class="highlight-yellow_background"><strong>operational issues</strong></mark>, escalating as necessary</li></ul><ul id="5a797a1e-b4c6-42ff-ace0-b89402496ef2" class="bulleted-list"><li><mark class="highlight-yellow_background">Leadership</mark>: Support development of other developers through <mark class="highlight-yellow_background"><strong>mentoring, code review, and knowledge sharing</strong></mark></li></ul></details></li></ul><ul id="76049947-3d7e-4fe3-93aa-a7e6b2f32773" class="toggle"><li><details open=""><summary>Requirements</summary><ul id="edef8c6e-a0c4-4fb9-a0e9-d2aa4d281681" class="bulleted-list"><li>In depth knowledge of <mark class="highlight-yellow_background"><strong>design principles</strong></mark> and best practices</li></ul><ul id="15518a95-61cf-4cc3-9952-cb4b77667bae" class="bulleted-list"><li>Excellent oral, written, and interpersonal <mark class="highlight-teal_background"><strong>communication</strong></mark> skills</li></ul><ul id="34466437-5b7f-4a8c-9bd8-0ed3100f2fbb" class="bulleted-list"><li>Ability to express ideas to both <strong>technical and non-technical individuals</strong></li></ul><ul id="3973b412-d408-4647-a423-576bcdc5de59" class="bulleted-list"><li>Demonstrated <strong><mark class="highlight-yellow_background">critical thinking skills, decision-making, and problem solving skills</mark></strong></li></ul><ul id="20d3f48e-dda0-4201-8bc8-4d47fe7ef8ef" class="bulleted-list"><li>Proven experience in portal technologies like <mark class="highlight-red_background">AEM (</mark><mark class="highlight-red_background"><strong>Adobe Experience Manager</strong></mark><mark class="highlight-red_background">), DAM (</mark><mark class="highlight-red_background"><strong>Digital Asset Management</strong></mark><mark class="highlight-red_background">) and CMS (</mark><mark class="highlight-red_background"><strong>Content Management System</strong></mark><mark class="highlight-red_background">)</mark><ul id="e4ef6306-c694-47ce-a896-c625fb74491a" class="toggle"><li><details open=""><summary>Content management system (CMS)</summary><ul id="320819b8-de17-44d6-b2a9-1e503196059d" class="bulleted-list"><li>is an application that is used to manage web content, allowing multiple contributors to create, edit and publish. </li></ul><ul id="d915753d-805a-41f8-930f-69704ef1132b" class="bulleted-list"><li>Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates.</li></ul><p id="3bde80f3-065e-4d2f-89c0-9606a7583adc" class="">
+</p></details></li></ul><ul id="fb10ab28-1070-428b-9fd0-3e0ea2aa40d1" class="toggle"><li><details open=""><summary>CMS reference</summary><p id="7722f745-319c-455f-bba5-a0817f9568e5" class=""><a href="https://kinsta.com/knowledgebase/content-management-system/">https://kinsta.com/knowledgebase/content-management-system/</a></p></details></li></ul><ul id="d51a79ad-2271-40d6-a00f-07e554b0d1ac" class="toggle"><li><details open=""><summary><mark class="highlight-blue">Similar Example</mark></summary><ul id="95c55ad1-a359-448e-a649-9e62ebb76848" class="bulleted-list"><li>Around: upload image and video assest</li></ul></details></li></ul></li></ul><ul id="73f31f44-5ad3-4766-a640-d551e4bcddc1" class="bulleted-list"><li>Knowledge of multiple technologies/frameworks such as <mark class="highlight-teal_background">J</mark><mark class="highlight-teal_background"><strong>ava, Web Services</strong></mark>, Spring, Struts, and <mark class="highlight-teal_background">Databases</mark></li></ul><ul id="b537520c-b927-47d8-9c05-0abc62243626" class="bulleted-list"><li>Working knowledge of <mark class="highlight-yellow_background"><strong>web hosting principles, server architectures, and web site security</strong></mark></li></ul><ul id="f59f79c8-3b62-4eeb-8846-01e7c0712f47" class="bulleted-list"><li>Hands on experience in web technologies, including <mark class="highlight-teal_background"><strong>HTML5, CSS</strong></mark><mark class="highlight-teal_background">, </mark><mark class="highlight-teal_background"><strong>Javascript</strong></mark><mark class="highlight-teal_background">/jQuery, </mark><mark class="highlight-teal_background"><strong>SQL</strong></mark><mark class="highlight-teal_background">, </mark>Angular JS<mark class="highlight-teal_background">, </mark><mark class="highlight-teal_background"><strong>React</strong></mark><mark class="highlight-teal_background"> would be a plus</mark></li></ul><ul id="9856be9f-2365-4076-9ed0-dba52d6aa1e3" class="bulleted-list"><li>Working experience with Python would be a plus</li></ul><ul id="a0ec6e60-2a79-41f7-84e3-fd43667bc260" class="bulleted-list"><li>Development experience in digital marketing areas like <strong><mark class="highlight-pink_background">Campaign, Email Marketing, Analytics and Data and Personalization</mark></strong> would be a plus<ul id="1e8ac49d-edec-4654-9f5a-b558b9ceb748" class="bulleted-list"><li>A <mark class="highlight-yellow_background">digital marketing campaign</mark> is an online strategy with the goal of promoting a business&#x27; product or service by increasing engagement, traffic and conversions.</li></ul><ul id="5ec14833-bc1a-4ac2-9229-e414fc8d00eb" class="bulleted-list"><li>Reference to <strong>Zenreach</strong></li></ul></li></ul><ul id="6d7add00-c731-4bb1-a02e-30c0911965e3" class="bulleted-list"><li>BS (or higher) in Computer Science or related technical field involving coding, or equivalent technical experience</li></ul><ul id="5676ce74-43ac-4093-a8f2-86fa3e9e6736" class="bulleted-list"><li>5+ years of experience in web development using AEM or related technologies</li></ul></details></li></ul></li></ul><ul id="af0e1379-207f-4a11-84db-3d81cfd6b947" class="bulleted-list"><li>Infrastructure Software Engineer - San Fransco</li></ul><h2 id="f0cec90d-82e8-4063-90db-3dd58c937901" class="">General Background of Dropbox</h2><ul id="4c9ac8be-e309-4ab6-bfbc-9b76a943610c" class="toggle"><li><details open=""><summary><mark class="highlight-yellow_background">What is Dropbox?</mark></summary><p id="d9e0dfe1-635e-4237-a44a-53ea1828726c" class=""><a href="https://www.businessinsider.com/what-is-dropbox">https://www.businessinsider.com/what-is-dropbox</a></p><ul id="12908d64-c463-4630-9a7b-0aae78876f49" class="toggle"><li><details open=""><summary>What is it?</summary><ul id="b7dc882f-ec42-420e-b4e2-f44b9905d94e" class="bulleted-list"><li><strong>Dropbox is a cloud storage service that lets you save files online and sync them to your devices.</strong></li></ul><ul id="8627a63e-37d9-4df9-8287-d5bd4831471f" class="bulleted-list"><li><strong>You can use Dropbox links to share files and folders with other people without sending large attachments. </strong></li></ul><ul id="49a7dede-a501-4792-96b5-d443541ab2d6" class="bulleted-list"><li><mark class="highlight-brown_background"><strong>Dropbox offers a free plan that includes 2 GB of storage. You can pay to increase that to as much as 3 TB with a subscription.</strong></mark></li></ul></details></li></ul><ul id="0f47d718-ec63-4d1b-b664-81f7cd8f2089" class="toggle"><li><details open=""><summary>How?</summary><ul id="c64f7723-82a7-49c3-811c-d4903522a404" class="bulleted-list"><li>Desktop and web</li></ul><ul id="cc790426-e62a-409c-9461-54370e161c4c" class="bulleted-list"><li>synchronizing your Dropbox files locally and online</li></ul></details></li></ul><ul id="367c1959-0515-4050-a976-4e295cb157b3" class="toggle"><li><details open=""><summary>Key features</summary><ul id="7a9be21a-2458-43c2-94d0-3062d7c91109" class="bulleted-list"><li>multiplatforms - desktop, mobile, web browser, Windows, Mac, iOS, Android</li></ul><ul id="c19b07a5-086a-4011-9fa5-59a30feab661" class="bulleted-list"><li>256-bit AES Advanced Encryption Standard</li></ul><ul id="4f6e8361-fa77-490d-8f70-a750a7043358" class="bulleted-list"><li>Level of permission : share files and foleders using specific link</li></ul><ul id="23cba559-6832-44a7-93d8-43d7546181ce" class="bulleted-list"><li>Use link for email attachment</li></ul><ul id="ba5ee2b5-e516-4bb0-80fb-70fb810dd757" class="bulleted-list"><li>history of versioning, 30 days of file recovery</li></ul></details></li></ul></details></li></ul><ul id="9e119c5b-2f24-42e8-9591-e0a794ef6395" class="toggle"><li><details open=""><summary>What is dropbox doing</summary><ul id="22836e3c-b147-4338-ab52-d8b6f5571542" class="bulleted-list"><li>Dropbox is the world’s first smart workspace that helps people and teams to work cooperatively.</li></ul><ul id="ee309f85-21bb-438e-abfc-0eb14a435fe8" class="bulleted-list"><li>User Amount: 600 million registered users across 180 countries</li></ul></details></li></ul><ul id="89660250-8f74-42a5-9e3d-2e8369ffbe74" class="toggle"><li><details open=""><summary>Problem wants to solve</summary><ul id="9c15e64c-fbb7-4376-bf8f-8d56f3d482c8" class="bulleted-list"><li>Work confidently, move fast, and scale effortlessly.</li></ul></details></li></ul><ul id="4918e562-c8d1-40a5-84d1-d7f17b45bf84" class="toggle"><li><details open=""><summary><strong>Value</strong> and <strong>Culture</strong></summary><ul id="13fdabb8-437d-44fd-adc6-cab3f21fc88f" class="toggle"><li><details open=""><summary>Work culture</summary><p id="3cf3fedd-2741-496f-a2cf-1e0d05c40866" class=""><a href="https://blog.dropbox.com/topics/work-culture#sort=%40publish_date%20descending">https://blog.dropbox.com/topics/work-culture#sort=%40publish_date descending</a></p><ul id="c293319f-6af5-4bad-b8b6-a7c6aa21f214" class="bulleted-list"><li>self-starter, self-driven</li></ul><ul id="86722cc6-994e-4890-9653-09fb9328b6c1" class="bulleted-list"><li>Problem solving</li></ul><ul id="8a5b7ab4-8274-4e56-b6ee-b9cf02924461" class="bulleted-list"><li><mark class="highlight-yellow_background"><strong>mentoring, </strong></mark></li></ul><ul id="74e7e393-b021-4771-b53a-be958385f6b5" class="bulleted-list"><li><mark class="highlight-yellow_background"><strong>code review</strong></mark></li></ul><ul id="075a8d7f-63e0-4408-b89b-dd0590bf78d2" class="bulleted-list"><li><mark class="highlight-yellow_background"><strong>knowledge sharing</strong></mark></li></ul><ul id="6e958d17-57c0-433b-b192-29d92180370c" class="bulleted-list"><li>supportive</li></ul><ul id="2d37db1f-5a56-4c40-a1a8-c09b5231fae6" class="bulleted-list"><li>Friendly</li></ul><ul id="f075cff4-ddd4-43c1-acc8-2f2002f21488" class="bulleted-list"><li>Collaborative</li></ul></details></li></ul><ul id="cc948ec0-8d42-4cf1-a321-0583efe912fe" class="toggle"><li><details open=""><summary>Product&#x27;s value</summary><ul id="e802fcf9-fbb4-4b95-9bd2-0e880d6c6db5" class="bulleted-list"><li>All-in-one place</li></ul><ul id="58605090-804d-4668-b447-afb1ff9d8def" class="bulleted-list"><li>multi-platforms &amp; devices; Sync files across devices and platforms</li></ul><ul id="4afa648f-f0cf-4929-a85e-edb59231a396" class="bulleted-list"><li>Get offline access on all your devices.</li></ul><ul id="66d33e79-6b52-4a6c-be6d-1295c089cc21" class="bulleted-list"><li>Smart sync - save your space from hard drive.</li></ul></details></li></ul><ul id="1bb8947e-8276-44fa-b52a-ea4c8a8be63f" class="toggle"><li><details open=""><summary>Products</summary><ul id="18976aa4-22cc-43bb-8a94-8ed3373843b3" class="toggle"><li><details open=""><summary>Dropbox Spaces</summary><p id="680c3042-267e-48c2-b491-38ac95ba291d" class=""><a href="https://blog.dropbox.com/topics/product/introducing-dropbox-spaces">https://blog.dropbox.com/topics/product/introducing-dropbox-spaces</a></p><ul id="5442fb13-ec4b-4130-8fd9-c78cc350fe6f" class="bulleted-list"><li>gives you a S<strong>ingle Source of Truth</strong> where you can see all of your team’s content in one convenient view</li></ul><ul id="b3953566-a69c-401f-8e3c-30aefe5a9473" class="bulleted-list"><li>Everything in one place.</li></ul><ul id="baed2db3-a2dd-48c9-95b1-e514512aaf6c" class="bulleted-list"><li>Focus on the most important work. - give your suggestions</li></ul></details></li></ul></details></li></ul></details></li></ul><ul id="94273fcd-d0b9-45f8-85be-4e3201dfd253" class="toggle"><li><details open=""><summary>Why Dropbox?</summary><ul id="c3673857-1b77-42e4-b880-ad41a6f8c132" class="bulleted-list"><li>My friend worked at Dropbox and he said it was a great experience - environment was nice, cheerful and friendly. So I wanted to join as well.</li></ul><ul id="f552b23f-2323-4c09-b6ee-79b0d3bd5484" class="bulleted-list"><li>I really like the product Dropbox. Dropbox was one of my critical studying tool when I was a student at University of Waterloo. I used that to share our study materials with my classmates. A friend of me and I stored a lot of brainstorm papers and media for a start-up idea.</li></ul><ul id="ee34793f-077f-4a73-a39e-e0cd73a82c56" class="bulleted-list"><li>Technical: I have two years experience on full-stack level - web and mobile. </li></ul><ul id="242bc63d-2417-4f97-9347-0aabe7b395d7" class="bulleted-list"><li>Skills involves <mark class="highlight-teal_background"><strong>HTML5, CSS</strong></mark><mark class="highlight-teal_background">, </mark><mark class="highlight-teal_background"><strong>Javascript</strong></mark><mark class="highlight-teal_background">/jQuery, </mark><mark class="highlight-teal_background"><strong>SQL</strong></mark><mark class="highlight-teal_background">, </mark><mark class="highlight-teal_background"><strong>React and Redux. - have full stack knowledge</strong></mark></li></ul><ul id="fa291dcd-ef21-44a0-89a4-ac6445abc61b" class="bulleted-list"><li><mark class="highlight-teal_background"><strong> I am able to solve problems</strong></mark></li></ul><ul id="2462891b-9d6a-41fb-98bc-f211ef8870b7" class="bulleted-list"><li>I also care about <mark class="highlight-teal">mentoring and knowledge sharing</mark>. - which inspires me to work in this atmosphere.</li></ul><ul id="d794a608-1818-4024-a324-84309a40a1e2" class="bulleted-list"><li>Interests:  distributed file system. content management system. Digital Assets Management.</li></ul><ul id="bdc9e08f-d8f7-4ca9-b92c-2cdfeb8e91d7" class="bulleted-list"><li>My understanding that Dropbox is solving a big problem for people around the world, to let people work smoothly and safe, which really inspires me to join and use my knowledge to make a contribution.</li></ul></details></li></ul><ul id="e4c500bb-81ac-47f8-8d4e-1d21d4b73c94" class="toggle"><li><details open=""><summary>What <strong>products</strong> of Dropbox?</summary><ul id="c932a6da-fc44-48e5-a649-445e550d9362" class="toggle"><li><details open=""><summary>Dropbox Spaces</summary><p id="8c97175f-4560-4ba8-a230-85debd639a84" class=""><a href="https://blog.dropbox.com/topics/product/introducing-dropbox-spaces">https://blog.dropbox.com/topics/product/introducing-dropbox-spaces</a></p><ul id="f2b84e25-ddbd-493e-80a8-acf38f544e3c" class="toggle"><li><details open=""><summary>What is it?</summary><ul id="7a3cc211-91bb-475d-831a-88dfdb2fbfa6" class="bulleted-list"><li>Provide a shared and collaborative space for team to sort out chat threat and files.</li></ul><ul id="5af0a1a6-2f08-49a1-8266-5b872fb7791c" class="bulleted-list"><li>lets teams work together on documents, share notes, and edit in real-time.</li></ul></details></li></ul><ul id="8afa95fe-3427-4a28-b482-bb5892ccca37" class="toggle"><li><details open=""><summary>Values?</summary><ul id="d93c6d17-c24e-451d-a363-37492e85bda2" class="bulleted-list"><li>Image search - save your time</li></ul><ul id="f06a73a6-4093-4f2b-a7f3-a267d131aade" class="bulleted-list"><li>File previews - stars, search highlights</li></ul><ul id="c2711548-8611-41ad-841e-7838d963c24f" class="bulleted-list"><li>Stay focused - team highlights, content suggestions, calendar integration</li></ul><ul id="6d045838-40c3-4a32-8a15-f2f07d4f8f12" class="bulleted-list"><li>Get in sync - overview todo list, notification, comments</li></ul></details></li></ul><ul id="f17cb9be-e7e5-45e9-9fdc-34ec34769905" class="toggle"><li><details open=""><summary>Adv?</summary><ul id="fea0d351-fe1c-4218-b150-e2d0524d4461" class="bulleted-list"><li><strong>Smart Sync</strong>: lets you access your cloud files from your desktop without saving them to your hard drive and mobile offline folders, so you can sync folders to your mobile device and access them without an internet connection.</li></ul><ul id="b15df9bd-1670-4aa1-a158-b216b3a9d61b" class="bulleted-list"><li>Easy to access from Dropbox desktop</li></ul><ul id="f59df8c5-1c82-49ae-a1c7-71ad1f080e02" class="bulleted-list"><li>gives you a S<strong>ingle Source of Truth</strong> where you can see all of your team’s content in one convenient view</li></ul><ul id="1886b08e-6c50-4287-b566-261fc74a10b0" class="bulleted-list"><li>Everything in one place.</li></ul><ul id="2ef14b6e-d91d-418f-92cc-644613b1c3a2" class="bulleted-list"><li>Focus on the most important work. - give your suggestions</li></ul></details></li></ul></details></li></ul><ul id="6c89800a-32a8-4865-99e7-ec9734eebaab" class="toggle"><li><details open=""><summary>Dropbox Paper - Notion</summary><ul id="e1b533e7-a650-42f8-8f65-56fa95d6d248" class="bulleted-list"><li>sharable documentation</li></ul><ul id="1c087f1b-6981-45ee-af94-4bf4cf851a0d" class="bulleted-list"><li>straighfoward</li></ul><ul id="f4ee658b-337a-417e-8688-ed773ac778be" class="bulleted-list"><li>easy to insert other type of text</li></ul></details></li></ul></details></li></ul><p id="c183610f-08f8-4992-8346-9a9c0c2c1fb3" class="">
+</p><h2 id="fe209143-64a2-4bfb-aec8-7fe237feb19f" class="">Possible BQ</h2><ul id="11c36a28-fcb6-4deb-af68-45805231f4e1" class="toggle"><li><details open=""><summary>Introduce yourself</summary><ul id="866b2963-9f2e-4945-bcf3-67ff247c9ce3" class="bulleted-list"><li><mark class="highlight-pink">Thank you very much for having an interview with me! I&#x27;m very excited about this the potential opportunity to join the company.</mark></li></ul><ul id="479c3603-bd0a-4cde-91b3-457b47ff5f72" class="toggle"><li><details open=""><summary>General</summary><ul id="1b3eefb7-1d45-4ee2-b67f-e1253afce34c" class="bulleted-list"><li>Graduated from University of Waterloo with Computer Science degree.</li></ul><ul id="e485d8dc-5d1c-4e6e-87a6-02e2bf813f62" class="bulleted-list"><li>Most familiar programming language :  Java, Swift. <ul id="280ffabd-2bd1-47fa-a211-442f25dd6514" class="bulleted-list"><li>familiar: GoLang, JavaScript, HTML/CSS, C#, Objective-C</li></ul></li></ul><ul id="f99b448d-f37f-43bc-a340-2dea695e1cda" class="bulleted-list"><li>Very good at OOD, data structure and algorithm</li></ul><ul id="a6a93dff-8a0f-47ab-9d3d-fdc6087169d8" class="bulleted-list"><li>2 years - working Exp of web application, mobile application at <strong>Zemind Game Studio</strong><ul id="54c275e3-5683-43d7-aaaf-18cd667bcf18" class="toggle"><li><details open=""><summary>Skill Sets</summary><ul id="12dfc3c9-0255-47ac-935a-0a8587df7f0c" class="toggle"><li><details open=""><summary>Web Application side</summary><ul id="ef2aae64-2426-4a21-8f55-553c4a118a7f" class="bulleted-list"><li>I have experience of <strong>ReactJS with Ant Design and Redux, 
+</strong>I used <strong>Tomcat</strong> to create <strong>Java servlets</strong> for handling the background logic - such as restful api calls.</li></ul><ul id="f5aecbeb-f2ba-4510-b396-e9416e816807" class="bulleted-list"><li>I have experience of <strong>MySQL</strong> with <strong>RDS (relational database service)</strong> and <strong>EC2(elastic compute cloud)</strong> on <strong>Amazon Web Service</strong> , as well as experience on <strong>Google Cloud Platform (Google Compute Engine + ElasticSearch)</strong></li></ul></details></li></ul><ul id="5231cd33-9232-4b15-af9f-8bc447d6936f" class="toggle"><li><details open=""><summary>iOS Mobile Application Side</summary><ul id="a10798de-8c2c-4694-bed3-6a8dec0eb62f" class="bulleted-list"><li>Experience with <strong>News Feed</strong> App and <strong>Online Order</strong> Service app in Xcode</li></ul><ul id="7babf3e7-8d1c-4e00-b547-6bd46407b8f6" class="bulleted-list"><li>Programming language: major Swift, minor in Objective-C</li></ul><ul id="e44062da-6325-4196-9f23-9e80da7d20ed" class="block-color-gray bulleted-list"><li>Popular third party framework : Alamofire</li></ul><ul id="683313e1-cade-4fea-90bb-82bb64ed5c86" class="bulleted-list"><li>Experienced in database: Firebase</li></ul></details></li></ul><ul id="7bcefdf8-0e8a-4bae-b391-f154a489191f" class="toggle"><li><details open=""><summary>Unity Project</summary><ul id="ebba502a-9edc-4ef9-b14a-f0e018cbbbeb" class="bulleted-list"><li>AR: Unity + Vuforia</li></ul></details></li></ul></details></li></ul><ul id="49b86df9-932e-4117-8898-0fb9aece824b" class="toggle"><li><details open=""><summary>Team Size</summary><ul id="24ac1d9e-d2f9-4086-8a23-9b5cdc49d939" class="bulleted-list"><li>Size of team: iOS developer group/ Android developer group, Backend dev,  UI/UX designer, Manual Testing Team, Product manager </li></ul><ul id="ebc8f34b-f4e5-45c7-8c7d-e69ad1b82af0" class="bulleted-list"><li>Everyone owns different type of projects, so a mobile developer is not only doing mobile stuff; Product manager is also a coder.</li></ul><ul id="19347492-6277-4bbf-ad8d-888168548baa" class="toggle"><li><details open=""><summary>Project type</summary><ul id="e30d87ba-b11a-458b-8dc7-3a13ed5b1851" class="toggle"><li><details open=""><summary>Long: (maintain a product)</summary><ul id="c3c8e93a-a15a-4056-b433-a68a394c4127" class="bulleted-list"><li><strong>agile</strong>: Plan + Design + Develop + Test + Release + Feedback </li></ul><ul id="50d1f2b0-8b2d-4152-9189-24a6320c2030" class="bulleted-list"><li>bi-weekly release</li></ul><ul id="5a74a2cb-f12a-4499-9423-5e3bff66b9ad" class="block-color-gray bulleted-list"><li>bigger size of group (Design, tester, marketing analysis, clients)</li></ul><ul id="b46c247c-134f-405b-aa31-751c216304d1" class="bulleted-list"><li>Duty:<ul id="011c53df-5e5e-402d-a78c-63820e7e8865" class="bulleted-list"><li>Maintain and optimize the performance</li></ul><ul id="8c627676-aee8-4cb9-bafc-02c167b29bc9" class="bulleted-list"><li>Adding new features for new release</li></ul><ul id="a6ee8658-f594-41b3-9b8a-5600abc4f86a" class="bulleted-list"><li>Updating the developing tools and frameworks.</li></ul><ul id="3f059864-eb64-4f4e-b88c-c90580913213" class="bulleted-list"><li><mark class="highlight-gray">We used </mark><mark class="highlight-gray"><strong>Ticket Management</strong></mark><mark class="highlight-gray">: to sort out all tasks and keep things done on time;</mark></li></ul></li></ul></details></li></ul><ul id="e5c195c8-e89b-43c3-9f19-b4e77c28008c" class="toggle"><li><details open=""><summary>Short (1-2 Month)</summary><ul id="414df471-0da7-4de9-a71c-e8d573b572f7" class="bulleted-list"><li>Waterfall (sequencial: gathering requreiments from clients + design + implementation + verification + maintenance)</li></ul><ul id="983f9d6c-b2c5-4036-a734-57180c02dbfc" class="bulleted-list"><li><mark class="highlight-gray">average size of group: ux designer, ios/android dev</mark></li></ul><ul id="1433e577-7308-4122-985a-2f6f90162888" class="bulleted-list"><li>really fast pace (Design + dev + test)</li></ul><p id="7a9891b7-5ccf-4d1f-b655-74f818d59060" class="">
+</p></details></li></ul></details></li></ul></details></li></ul></li></ul></details></li></ul><ul id="bb157c00-fe24-4f81-98e1-733ef316d41e" class="bulleted-list"><li><mark class="highlight-pink">Thank you again for giving me a potential chance to get into D2L and listening to me.</mark></li></ul></details></li></ul><ul id="b222f825-8270-4584-9dfa-548eaa962391" class="toggle"><li><details open=""><summary>Most Recent Projects</summary><ul id="801d007a-ed3e-4e03-9fb2-2d0c1cc7f811" class="toggle"><li><details open=""><summary>Delivery Project</summary><ul id="6648308f-4284-433e-89bc-87f6ce2df076" class="toggle"><li><details open=""><summary>What inspire me!</summary><ul id="2d79fbdd-5967-4ab4-b9e3-4d1850f3fa61" class="bulleted-list"><li>StayAtHome: people cannot go out but need to do delivery</li></ul><ul id="a581f045-e269-4229-8dbe-fb6082ee1d0c" class="bulleted-list"><li>let automation help!</li></ul></details></li></ul><ul id="152d1254-2b88-4a71-b541-2b3634b12e23" class="toggle"><li><details open=""><summary>Led a team of 4 people, UX designer, one front-end, one backend, and myself (I&#x27;m the project manager - responsible for everything</summary><ul id="e28b7530-5d42-45bb-ab64-1a2e4df2c548" class="bulleted-list"><li><strong>Teach</strong> : checking member&#x27;s knowledge base + hold a weekely tutorial.</li></ul><ul id="9bf32b74-ce05-4a6f-a10d-926b9f182a17" class="bulleted-list"><li><strong>Design</strong><ul id="f0bf8cf3-67e9-4a15-b593-25dd1f0b917a" class="bulleted-list"><li>Wireframe of UI, </li></ul><ul id="551af284-7b92-42c7-ad62-66d6ef59f2be" class="bulleted-list"><li>React component layers</li></ul><ul id="fc66b975-12e4-4feb-af54-ff662f33d18d" class="bulleted-list"><li>Schema for database - we used relational database for this project, will extend to non-relational database for scalability.</li></ul><ul id="5282ee01-70a7-4677-a219-ccaaaada82d2" class="bulleted-list"><li>Service design: Restful api calls - for handling our services</li></ul></li></ul><ul id="5cdfce4a-7083-4209-9ea3-679ab94f90db" class="bulleted-list"><li><strong>Decide</strong> what frameworks/APIs we use</li></ul><ul id="2ba425aa-4a37-4f8d-952e-37c88b9913d0" class="bulleted-list"><li>Hold Weekly meeting to check everyone is on stage</li></ul><ul id="7c9f4232-2348-4ae3-ab37-b83f425984c5" class="bulleted-list"><li>Code review + merge everyone&#x27;s work to master = make sure the consistency</li></ul><ul id="cbe41f7b-6638-43d6-8543-c3556d4e5df0" class="bulleted-list"><li>Assign new tasks for next week</li></ul></details></li></ul><ul id="1859fa39-be98-4976-b9a1-c2f0edbf1d33" class="toggle"><li><details open=""><summary>Tech stack</summary><ul id="c3eb7a70-a94a-428a-aefa-d3d386da932b" class="bulleted-list"><li>Frontend : ReactJS + Redux + Ant-design</li></ul><ul id="5c8b54b6-f4d2-4ff6-b7a6-64b0d6ab4462" class="bulleted-list"><li>Backend<ul id="72661012-6f20-43ed-bc9e-4b629f3c35c2" class="bulleted-list"><li>MySQL + AWS(ec2 + rds) + Tomcat (Java servlet)</li></ul><ul id="2ee99566-b5f3-462d-b094-2fc133e50332" class="bulleted-list"><li>Determine what services we need<ul id="5cd9992b-0311-4e22-991f-2d85bb19ebbf" class="bulleted-list"><li>Customer Data</li></ul><ul id="8ac206e1-1758-418d-b394-9183b1d9f47f" class="bulleted-list"><li>Allocate drone/android</li></ul></li></ul><ul id="ba84324f-0845-4833-acfb-40ce7e0e020e" class="bulleted-list"><li>Research QPS + count how many people + make estimation</li></ul><ul id="9aa59208-65a4-42ff-90de-bb9cbe0e6430" class="bulleted-list"><li>Determine a relational data model in MySQL db.</li></ul></li></ul></details></li></ul></details></li></ul><ul id="3e7064ee-2a90-4dc3-95a2-6be4fa09cc3e" class="toggle"><li><details open=""><summary>Mini-Instagram Project</summary><ul id="e6d9b857-a06b-4c52-b453-fc198e48f288" class="bulleted-list"><li>Mimi instragram is a mimic of instagram web app that allows users to upload video or image. Users can also see nearby posts - video or images around him or her.</li></ul><ul id="443a62bf-c9f0-407c-a81d-dd699c7d29a2" class="bulleted-list"><li>Front-end <ul id="4f4a43f9-514f-4373-92e5-a568c529e3ab" class="bulleted-list"><li>React JS, Social network(create/view posts, search, profile etc.)</li></ul><ul id="8f46190e-8c86-40bb-abf2-94b0282a6e9d" class="bulleted-list"><li>token based registration with JSON Web Tokens</li></ul></li></ul><ul id="ead6d667-d8f5-45cb-8747-2b6ad69770b3" class="bulleted-list"><li>Back-end<ul id="09248412-49bd-4097-b09c-4b2ddb5bcc1d" class="bulleted-list"><li>Go &amp; Google Cloud: </li></ul><ul id="bee6b8ca-98f2-445d-9af7-6d89c2995f60" class="bulleted-list"><li>ElasticSearch(GCE) : geo-location based search function</li></ul></li></ul></details></li></ul></details></li></ul><ul id="c28232c1-0a3a-4674-bb8d-c5498f56f0ad" class="toggle"><li><details open=""><summary>How to sharp your tech?</summary></details></li></ul><ul id="64eb1cc0-31df-4afb-b33c-46b8f6a7c456" class="toggle"><li><details open=""><summary>Why left?</summary><ul id="b5b877a5-0437-4738-b240-51677174c8ff" class="bulleted-list"><li>Learn a lot from ZeMind, had very nice teammates and fun. But I also feel that it was my comfort zone</li></ul><ul id="3b560ad4-1f3e-4f95-b927-c489b66f488e" class="bulleted-list"><li>So I&#x27;m looking forward to more learning opportunities</li></ul><ul id="2fdae374-f796-4df0-81fa-3dbff6406a75" class="bulleted-list"><li>Wanted to expand my knowledge aspects.</li></ul><ul id="7e75eb88-9ef7-421d-9d62-be8c656fe766" class="bulleted-list"><li>Laidoff</li></ul><ul id="159e6a76-f792-4a74-a216-452498a2e11c" class="bulleted-list"><li>Want to try distributed file system and content management system.</li></ul></details></li></ul><ul id="0812a185-206a-4abe-9f44-4d720454927b" class="toggle"><li><details open=""><summary>Similar Products - All in one place</summary><ul id="b29f2e7e-342b-4487-966c-fb00353e7261" class="bulleted-list"><li>Google Drive</li></ul><ul id="fbbcb5e3-26f2-4456-9189-e13b322ff906" class="bulleted-list"><li>Notions + Typora</li></ul><ul id="b6e066b3-98de-4fb5-a61b-e31937c66d13" class="bulleted-list"><li>github</li></ul><ul id="61ebcc21-6914-4d47-b60e-979d8e44cd19" class="bulleted-list"><li>Project tracking - Jira, Trello</li></ul><ul id="d13629f8-69de-4f4e-b664-a08cae8cc193" class="bulleted-list"><li>Side proj: Slack</li></ul></details></li></ul><ul id="ea85fde3-d774-4b19-9305-0f0d7b463a8c" class="toggle"><li><details open=""><summary>Questions to ask?</summary><ul id="f876c7f6-937c-4741-bcfe-76bfaa7937ec" class="bulleted-list"><li>Different Team size?<ul id="95907e9c-45e9-4a04-afdb-f244b21e11cb" class="bulleted-list"><li>constant</li></ul><ul id="7cddd090-a292-48bd-a9ee-40d1ef0c03c9" class="bulleted-list"><li>start-up</li></ul></li></ul><ul id="64c8a266-fefc-4c35-8c01-7b59ff0e214e" class="bulleted-list"><li>Fresh new product vs maintain an old products</li></ul><ul id="370bdcba-1958-4279-83fc-8fa55a2082a8" class="bulleted-list"><li>What team is hiring and what project they are on?</li></ul><p id="8466a905-c2f0-4de4-b700-44e79255c95d" class="">
+</p></details></li></ul><p id="934a6a92-7cdd-4934-8fbf-01903e75459a" class="">
+</p><h2 id="25685091-7cf6-4fd0-bb28-31a121b238a0" class="">What to prepare next?</h2><ul id="bfffcf0a-a8fd-4386-ac1a-2b6b7d145ed4" class="bulleted-list"><li>distributed file system</li></ul><ul id="b3d3de59-f954-48bd-a68a-eeaa5743ff18" class="bulleted-list"><li>content management system</li></ul></div></article></body></html>

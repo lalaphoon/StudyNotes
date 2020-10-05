@@ -119,7 +119,7 @@ GET, POST, HEAD, PUT, DELETE, OPTIONS
   * **HTTP is connectionless:** It is a connectionless approach in which HTTP client i.e., a browser initiates the HTTP request；  <u>After the request is sent， the client disconnects from server and waits for the response</u>.
   * Sol: http persistent connection -  to increase the effective of working.
   * ![Screen Shot 2020-05-23 at 11.30.04 PM](./res/Screen Shot 2020-05-23 at 11.30.04 PM.png)
-  * ==How to determine a reques has been finished?== 
+  * ==How to determine a request has been finished?== 
     * Content-lenth: 1024
     * Chunked: 最后一个是空的chunked
   * ==Charles抓包原理是怎样的？==

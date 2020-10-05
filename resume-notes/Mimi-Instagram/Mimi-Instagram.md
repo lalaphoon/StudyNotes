@@ -22,6 +22,16 @@ Mimi instragram is a mimic of instagram web app that allows users to upload vide
 
 
 
+
+
+
+
+
+
+
+
+
+
 ### Backend
 
 #### main.go
@@ -47,9 +57,25 @@ Mimi instragram is a mimic of instagram web app that allows users to upload vide
 
 
 
-user.go
+#### user.go
 
-vision.go
+TBC
+
+#### vision.go
+
+TBC
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
